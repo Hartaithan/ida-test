@@ -8,7 +8,19 @@
 }
 
 html,
-body {
+body,
+#__nuxt,
+#__layout,
+#app {
   height: 100%;
   width: 100%;
+}
+
+#app {
+  padding: 32px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
 }

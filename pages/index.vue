@@ -1,4 +1,8 @@
-<template><Sidebar /></template>
+<template>
+  <div id="app">
+    <Sidebar />
+  </div>
+</template>
 
 <script>
 export default {
