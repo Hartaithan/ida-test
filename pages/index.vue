@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Sidebar />
+    <ItemList />
   </div>
 </template>
 

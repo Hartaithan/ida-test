@@ -41,7 +41,9 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
-  max-width: 332px;
+  width: 332px;
+  min-width: 332px;
+  margin-right: 16px;
 }
 h1 {
   font-weight: 600;

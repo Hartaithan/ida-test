@@ -10,14 +10,16 @@
 html,
 body,
 #__nuxt,
-#__layout,
-#app {
+#__layout {
   height: 100%;
   width: 100%;
 }
 
 #app {
+  max-width: 1440px;
+  display: flex;
   padding: 32px;
+  margin: 0 auto;
 }
 
 button {
