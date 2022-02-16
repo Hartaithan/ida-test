@@ -1,6 +1,4 @@
-<template>
-  <Tutorial />
-</template>
+<template><Sidebar /></template>
 
 <script>
 export default {
