@@ -48,6 +48,10 @@ export default {
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
     0px 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+  }
   &:nth-child(3n) {
     margin-right: 0;
     margin-bottom: 16px;

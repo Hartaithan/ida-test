@@ -43,7 +43,11 @@ export default {
 .sidebar {
   width: 332px;
   min-width: 332px;
+  height: fit-content;
   margin-right: 16px;
+  position: sticky;
+  top: 16px;
+  left: 0;
 }
 h1 {
   font-weight: 600;
@@ -84,6 +88,16 @@ form {
       color: #b4b4b4;
     }
   }
+  input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
   textarea {
     min-height: 108px;
     resize: none;
@@ -101,6 +115,10 @@ button {
   &:disabled {
     color: #b4b4b4;
     background: #eeeeee;
+  }
+  &:hover,
+  &:focus {
+    background: #486f42;
   }
 }
 </style>
