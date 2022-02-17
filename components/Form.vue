@@ -27,7 +27,6 @@
         :class="{ invalid: errors.description }"
         type="text"
         placeholder="Введите описание товара"
-        @change="validateInput('description')"
       />
       <div v-if="errors.description" class="input-group__feedback">
         {{ errors.description }}
@@ -66,7 +65,7 @@
         {{ errors.price }}
       </div>
     </div>
-    <button type="submit">
+    <button type="submit" :disabled="!formIsValid()">
       Добавить товар
     </button>
   </form>
@@ -88,35 +87,23 @@ export default {
   },
   methods: {
     handleSubmit () {
-      if (this.validateForm()) {
-        alert(JSON.stringify(this.form))
-      }
+      alert(JSON.stringify(this.form))
     },
-    validateForm () {
-      const errors = {}
-      if (this.form.name.length === 0) {
-        errors.name = "Поле 'Наименование товара' обязательно для заполнения"
-      }
-      if (this.form.description.length === 0) {
-        errors.description =
-          "Поле 'Описание товара' обязательно для заполнения"
-      }
-      if (this.form.link.length === 0) {
-        errors.link =
-          "Поле 'Ссылка на изображение товара' обязательно для заполнения"
-      }
-      if (!this.form.price) {
-        errors.price = "Поле 'Цена товара' обязательно для заполнения"
-      }
-      this.errors = errors
-      return errors.length === 0
+    formIsValid () {
+      return (
+        this.form.name.length > 0 &&
+        this.form.link.length > 0 &&
+        this.form.price
+      )
     },
     validateInput (id) {
       const errors = { ...this.errors }
-      if (this.form[id].length > 0) {
+      if (this.form[id].length === 0) {
+        errors[id] = 'Поле является обязательным'
+      } else {
         delete errors[id]
-        this.errors = errors
       }
+      this.errors = errors
     }
   }
 }
@@ -191,7 +178,7 @@ button {
   color: #ffffff;
   &:disabled {
     color: #b4b4b4;
-    background: #eeeeee;
+    background: #eeeeee !important;
   }
   &:hover,
   &:focus {
