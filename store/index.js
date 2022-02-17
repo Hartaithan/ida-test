@@ -40,5 +40,9 @@ export const mutations = {
         price: form.price
       }
     ]
+  },
+  deleteItem (state, id) {
+    const items = [...state.list].filter(item => item.id !== id)
+    state.list = items
   }
 }
