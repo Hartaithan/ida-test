@@ -1,30 +1,5 @@
 export const state = () => ({
-  list: [
-    {
-      id: 1,
-      name: 'Наименование товара 1',
-      description:
-        '1) Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-      link: 'https://html5css.ru/css/img_fjords.jpg',
-      price: '10 000'
-    },
-    {
-      id: 2,
-      name: 'Наименование товара 2',
-      description:
-        '2) Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-      link: 'https://html5css.ru/css/img_forest.jpg',
-      price: '20 000'
-    },
-    {
-      id: 3,
-      name: 'Наименование товара 3',
-      description:
-        '3) Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-      link: 'https://html5css.ru/css/img_lights.jpg',
-      price: '30 000'
-    }
-  ]
+  list: []
 })
 
 export const mutations = {
@@ -40,9 +15,14 @@ export const mutations = {
         price: form.price
       }
     ]
+    localStorage.setItem('list', JSON.stringify(state.list))
   },
   deleteItem (state, id) {
     const items = [...state.list].filter(item => item.id !== id)
     state.list = items
+    localStorage.setItem('list', JSON.stringify(state.list))
+  },
+  loadFromLocalStorage (state, list) {
+    state.list = list
   }
 }

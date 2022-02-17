@@ -74,17 +74,15 @@
 <script>
 export default {
   name: 'FormComponent',
-  data () {
-    return {
-      form: {
-        name: '',
-        description: '',
-        link: '',
-        price: ''
-      },
-      errors: {}
-    }
-  },
+  data: () => ({
+    form: {
+      name: '',
+      description: '',
+      link: '',
+      price: ''
+    },
+    errors: {}
+  }),
   methods: {
     handleSubmit () {
       this.$store.commit('addItem', this.form)
