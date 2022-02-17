@@ -57,10 +57,9 @@
         v-model="form.price"
         class="input-group__input"
         :class="{ invalid: errors.price }"
-        type="number"
-        placeholder="Введите
-      цену"
-        @input="validateInput('price')"
+        type="text"
+        placeholder="Введите цену"
+        @input="onPriceChange($event)"
       >
       <div v-if="errors.price" class="input-group__feedback">
         {{ errors.price }}
@@ -105,6 +104,13 @@ export default {
         delete errors[id]
       }
       this.errors = errors
+    },
+    onPriceChange (e) {
+      this.validateInput('price')
+      const value = e.target.value
+      this.form.price = value
+        .replace(/\D/g, '')
+        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ' ')
     }
   }
 }
