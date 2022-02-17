@@ -93,13 +93,20 @@ export default {
       return (
         this.form.name.length > 0 &&
         this.form.link.length > 0 &&
-        this.form.price.length > 0
+        this.form.price.length > 0 &&
+        Object.keys(this.errors).length === 0
       )
     },
     validateInput (id) {
       const errors = { ...this.errors }
       if (this.form[id].length === 0) {
         errors[id] = 'Поле является обязательным'
+      } else if (
+        id === 'link' &&
+        !this.form.link.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g)
+      ) {
+        errors.link =
+          "В поле 'Ссылка на изображение товара' должны быть ссылка на изображение"
       } else {
         delete errors[id]
       }

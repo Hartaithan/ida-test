@@ -7,7 +7,6 @@
         alt="image not found"
       >
     </object>
-    <!-- <img class="item__img" :src="item.link" alt="item pic" /> -->
     <div class="item__info">
       <div class="item__name">
         {{ item.name }}
