@@ -9,7 +9,7 @@
         :class="{ invalid: errors.name }"
         type="text"
         placeholder="Введите наименование товара"
-        @change="validateInput('name')"
+        @input="validateInput('name')"
       >
       <div v-if="errors.name" class="input-group__feedback">
         {{ errors.name }}
@@ -44,7 +44,7 @@
         :class="{ invalid: errors.link }"
         type="text"
         placeholder="Введите ссылку"
-        @change="validateInput('link')"
+        @input="validateInput('link')"
       >
       <div v-if="errors.link" class="input-group__feedback">
         {{ errors.link }}
@@ -58,8 +58,9 @@
         class="input-group__input"
         :class="{ invalid: errors.price }"
         type="number"
-        placeholder="Введите цену"
-        @change="validateInput('price')"
+        placeholder="Введите
+      цену"
+        @input="validateInput('price')"
       >
       <div v-if="errors.price" class="input-group__feedback">
         {{ errors.price }}
