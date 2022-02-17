@@ -127,6 +127,16 @@ form {
     letter-spacing: -0.02em;
     color: #49485e;
     margin-bottom: 4px;
+    &[for]:not([for="description"])::after {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: #ff8484;
+      border-radius: 4px;
+      position: absolute;
+      margin-left: 2px;
+    }
   }
   &__input,
   &__textarea {
