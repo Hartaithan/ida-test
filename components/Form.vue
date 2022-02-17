@@ -80,20 +80,20 @@ export default {
         name: '',
         description: '',
         link: '',
-        price: null
+        price: ''
       },
       errors: {}
     }
   },
   methods: {
     handleSubmit () {
-      alert(JSON.stringify(this.form))
+      this.$store.commit('addItem', this.form)
     },
     formIsValid () {
       return (
         this.form.name.length > 0 &&
         this.form.link.length > 0 &&
-        this.form.price
+        this.form.price.length > 0
       )
     },
     validateInput (id) {
@@ -106,11 +106,11 @@ export default {
       this.errors = errors
     },
     onPriceChange (e) {
-      this.validateInput('price')
       const value = e.target.value
       this.form.price = value
         .replace(/\D/g, '')
         .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ' ')
+      this.validateInput('price')
     }
   }
 }
