@@ -7,11 +7,12 @@ export const state = () => ({
 
 export const mutations = {
   addItem (state, form) {
-    const length = state.list.length + 1
+    const id =
+      state.list.length > 0 ? state.list[state.list.length - 1].id + 1 : 1
     state.list = [
       ...state.list,
       {
-        id: length,
+        id,
         name: form.name,
         description: form.description,
         link: form.link,

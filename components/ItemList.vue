@@ -16,7 +16,7 @@
       <transition-group class="item-list__wrapper" name="list" tag="div">
         <Item
           v-for="item in items"
-          :key="item.id"
+          :key="`${item.id}${item.name}`"
           class="list-item"
           :item="item"
         />
@@ -97,7 +97,7 @@ p {
   &-enter,
   &-leave-to {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(30px);
   }
 }
 .fade {
