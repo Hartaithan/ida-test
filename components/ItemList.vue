@@ -1,6 +1,9 @@
 <template>
   <transition name="fade" mode="out-in">
     <Loader v-if="isLoading" />
+    <p v-else-if="items.length === 0">
+      Товар еще не добавлены
+    </p>
     <div v-else class="item-list">
       <Select
         :options="options"
@@ -8,10 +11,12 @@
         @input="handleSelect($event)"
       />
       <transition-group class="item-list__wrapper" name="list" tag="div">
-        <Item v-for="item in items" :key="item.id" :item="item" />
-        <p v-if="items.length === 0">
-          Товар еще не добавлены
-        </p>
+        <Item
+          v-for="item in items"
+          :key="item.id"
+          class="list-item"
+          :item="item"
+        />
       </transition-group>
     </div>
   </transition>
@@ -74,8 +79,8 @@ p {
     transition: transform 0.5s;
   }
   &-item {
+    transition: all 1s;
     display: inline-block;
-    margin-right: 10px;
   }
   &-enter-active,
   &-leave-active {
@@ -84,7 +89,7 @@ p {
   &-enter,
   &-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(10px);
   }
 }
 .fade {
