@@ -1,19 +1,21 @@
 <template>
-  <div v-if="alertIsOpen" class="alert">
-    Товар успешно добавлен
-    <svg
-      class="checkmark"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 52 52"
-    >
-      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-      <path
-        class="checkmark__check"
-        fill="none"
-        d="M14.1 27.2l7.1 7.2 16.7-16.8"
-      />
-    </svg>
-  </div>
+  <transition name="slide-fade">
+    <div v-if="alertIsOpen" class="alert">
+      Товар успешно добавлен
+      <svg
+        class="checkmark"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 52 52"
+      >
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+        <path
+          class="checkmark__check"
+          fill="none"
+          d="M14.1 27.2l7.1 7.2 16.7-16.8"
+        />
+      </svg>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -85,6 +87,19 @@ export default {
     100% {
       box-shadow: inset 0px 0px 0px 30px #7ac142;
     }
+  }
+}
+.slide-fade {
+  &-enter-active {
+    transition: all 0.3s ease;
+  }
+  &-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  &-enter,
+  &-leave-to {
+    transform: translateY(10px);
+    opacity: 0;
   }
 }
 </style>
