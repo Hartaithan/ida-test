@@ -8,9 +8,9 @@
         class="select"
         @input="handleSelect($event)"
       />
-      <div class="item-list__wrapper">
+      <transition-group class="item-list__wrapper" name="list" tag="div">
         <Item v-for="item in items" :key="item.id" :item="item" />
-      </div>
+      </transition-group>
       <p v-if="items.length === 0">
         Товар еще не добавлены
       </p>
@@ -69,5 +69,23 @@ p {
   margin-top: 16px;
   width: 100%;
   text-align: center;
+}
+.list {
+  &-move {
+    transition: transform 0.5s;
+  }
+  &-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 }
 </style>
