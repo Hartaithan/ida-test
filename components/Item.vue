@@ -79,8 +79,6 @@ export default {
   width: 332px;
   height: fit-content;
   color: #3f3f3f;
-  margin-right: 16px;
-  margin-bottom: 0;
   background: #fffefb;
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
     0px 6px 10px rgba(0, 0, 0, 0.02);
@@ -90,13 +88,6 @@ export default {
   }
   &:hover > &__delete {
     opacity: 1;
-  }
-  &:nth-child(3n) {
-    margin-right: 0;
-    margin-bottom: 16px;
-  }
-  &:last-child {
-    margin-bottom: 0;
   }
   &__delete {
     opacity: 0;
@@ -141,5 +132,31 @@ export default {
       content: " руб.";
     }
   }
+}
+
+@media (min-width: 1921px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+  .item {
+    width: 100%;
+    &__delete {
+      opacity: 1 !important;
+      top: 8px;
+      right: 8px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
 }
 </style>

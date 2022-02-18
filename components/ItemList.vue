@@ -5,11 +5,14 @@
       Товар еще не добавлены
     </p>
     <div v-else class="item-list">
-      <Select
-        :options="options"
-        :default="options[0]"
-        @input="handleSelect($event)"
-      />
+      <div class="item-list__header">
+        <ToggleSidebar />
+        <Select
+          :options="options"
+          :default="options[0]"
+          @input="handleSelect($event)"
+        />
+      </div>
       <transition-group class="item-list__wrapper" name="list" tag="div">
         <Item
           v-for="item in items"
@@ -63,9 +66,14 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
-  &__wrapper {
+  &__header {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     margin-top: 16px;
   }
 }
@@ -101,5 +109,35 @@ p {
   &-leave-to {
     opacity: 0;
   }
+}
+
+@media (min-width: 1921px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+  .item-list {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .item-list {
+    &__header {
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
 }
 </style>

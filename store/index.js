@@ -1,7 +1,8 @@
 export const state = () => ({
   list: [],
   unsorted: [],
-  alertIsOpen: false
+  alertIsOpen: false,
+  sidebarIsOpen: true
 })
 
 export const mutations = {
@@ -25,7 +26,65 @@ export const mutations = {
     localStorage.setItem('list', JSON.stringify(state.list))
   },
   loadFromLocalStorage (state, list) {
-    state.list = list
+    state.list = [
+      {
+        id: 1,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 2,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 3,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 4,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 5,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 6,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 7,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      },
+      {
+        id: 8,
+        name: '123123',
+        description: '123123',
+        link: 'https://html5css.ru/css/img_mountains.jpg',
+        price: '123123'
+      }
+    ]
+    // state.list = list
   },
   sortBy (state, sortType) {
     if (state.unsorted.length === 0) {
@@ -64,5 +123,8 @@ export const mutations = {
   },
   showAlert (state) {
     state.alertIsOpen = !state.alertIsOpen
+  },
+  showSidebar (state) {
+    state.sidebarIsOpen = !state.sidebarIsOpen
   }
 }
