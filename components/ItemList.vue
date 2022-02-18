@@ -2,7 +2,7 @@
   <transition name="fade" mode="out-in">
     <Loader v-if="isLoading" />
     <p v-else-if="items.length === 0">
-      Товар еще не добавлены
+      Товары еще не добавлены
     </p>
     <div v-else class="item-list">
       <div class="item-list__header">
