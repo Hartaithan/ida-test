@@ -55,7 +55,7 @@ h1 {
     height: 100%;
     top: 0;
     left: -332px;
-    z-index: 9999;
+    z-index: 10;
     background: #fffefb;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
       0px 6px 10px rgba(0, 0, 0, 0.02);

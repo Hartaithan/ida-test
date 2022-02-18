@@ -41,6 +41,7 @@ export default {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   font-size: 18px;
+  z-index: 20;
 }
 .checkmark {
   margin-left: 14px;
