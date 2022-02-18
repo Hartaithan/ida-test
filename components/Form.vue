@@ -86,6 +86,12 @@ export default {
   methods: {
     handleSubmit () {
       this.$store.commit('addItem', this.form)
+      this.form = {
+        name: '',
+        description: '',
+        link: '',
+        price: ''
+      }
     },
     formIsValid () {
       return (
