@@ -136,6 +136,13 @@ p {
 }
 
 @media (max-width: 768px) {
+  .item-list {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 16px;
+    }
+  }
 }
 
 @media (max-width: 576px) {

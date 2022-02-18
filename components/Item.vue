@@ -138,11 +138,13 @@ export default {
 }
 
 @media (max-width: 1400px) {
+  .item {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1200px) {
   .item {
-    width: 100%;
     &__delete {
       opacity: 1 !important;
       top: 8px;
@@ -152,6 +154,19 @@ export default {
 }
 
 @media (max-width: 992px) {
+  .item {
+    &__info {
+      height: fit-content;
+    }
+    &__description {
+      margin-bottom: 16px;
+    }
+    &__delete {
+      opacity: 1 !important;
+      top: 8px;
+      right: 8px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
