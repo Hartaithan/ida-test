@@ -1,21 +1,20 @@
 <template>
-  <div class="item-list">
+  <transition name="fade" mode="out-in">
     <Loader v-if="isLoading" />
-    <template v-else>
+    <div v-else class="item-list">
       <Select
         :options="options"
         :default="options[0]"
-        class="select"
         @input="handleSelect($event)"
       />
       <transition-group class="item-list__wrapper" name="list" tag="div">
         <Item v-for="item in items" :key="item.id" :item="item" />
+        <p v-if="items.length === 0">
+          Товар еще не добавлены
+        </p>
       </transition-group>
-      <p v-if="items.length === 0">
-        Товар еще не добавлены
-      </p>
-    </template>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -86,6 +85,16 @@ p {
   &-leave-to {
     opacity: 0;
     transform: translateY(30px);
+  }
+}
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.5s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
   }
 }
 </style>
