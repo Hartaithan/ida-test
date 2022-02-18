@@ -2,6 +2,7 @@
   <div id="app">
     <Sidebar />
     <ItemList />
+    <Alert />
   </div>
 </template>
 

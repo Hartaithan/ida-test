@@ -1,6 +1,7 @@
 export const state = () => ({
   list: [],
-  unsorted: []
+  unsorted: [],
+  alertIsOpen: false
 })
 
 export const mutations = {
@@ -60,5 +61,8 @@ export const mutations = {
       default:
         break
     }
+  },
+  showAlert (state) {
+    state.alertIsOpen = !state.alertIsOpen
   }
 }

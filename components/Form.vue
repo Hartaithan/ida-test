@@ -92,6 +92,10 @@ export default {
         link: '',
         price: ''
       }
+      this.$store.commit('showAlert')
+      setTimeout(() => {
+        this.$store.commit('showAlert')
+      }, 5000)
     },
     formIsValid () {
       return (
