@@ -25,8 +25,9 @@ export default {
     isLoading: true,
     options: [
       { value: 0, label: 'По умолчанию' },
-      { value: 1, label: 'По цене' },
-      { value: 2, label: 'По наименованию' }
+      { value: 1, label: 'По возрастанию цены' },
+      { value: 2, label: 'По убыванию цены' },
+      { value: 3, label: 'По наименованию' }
     ]
   }),
   computed: {
@@ -39,15 +40,15 @@ export default {
     setTimeout(() => {
       if (perisistedList) {
         this.$store.commit('loadFromLocalStorage', perisistedList)
-        this.isLoading = false
       } else {
         this.$store.commit('loadFromLocalStorage', [])
       }
+      this.isLoading = false
     }, 1000)
   },
   methods: {
     handleSelect (sortType) {
-      console.log(sortType)
+      this.$store.commit('sortBy', sortType)
     }
   }
 }

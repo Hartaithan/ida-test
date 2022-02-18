@@ -58,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .select {
   position: relative;
-  width: 148px;
+  width: 164px;
   text-align: left;
   outline: none;
   height: 36px;

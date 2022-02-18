@@ -95,6 +95,9 @@ export default {
     margin-right: 0;
     margin-bottom: 16px;
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
   &__delete {
     opacity: 0;
     position: absolute;
