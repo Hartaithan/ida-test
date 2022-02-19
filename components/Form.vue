@@ -86,12 +86,12 @@ export default {
   methods: {
     handleSubmit () {
       this.$store.commit('addItem', this.form)
-      // this.form = {
-      //   name: '',
-      //   description: '',
-      //   link: '',
-      //   price: ''
-      // }
+      this.form = {
+        name: '',
+        description: '',
+        link: '',
+        price: ''
+      }
       this.$store.commit('showAlert')
       setTimeout(() => {
         this.$store.commit('showAlert')
