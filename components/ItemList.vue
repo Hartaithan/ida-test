@@ -1,9 +1,12 @@
 <template>
   <transition name="fade" mode="out-in">
     <Loader v-if="isLoading" />
-    <p v-else-if="items.length === 0">
-      Товары еще не добавлены
-    </p>
+    <div v-else-if="items.length === 0" class="item-list">
+      <div class="item-list__header">
+        <ToggleSidebar />
+      </div>
+      <p>Товары еще не добавлены</p>
+    </div>
     <div v-else class="item-list">
       <div class="item-list__header">
         <ToggleSidebar />
