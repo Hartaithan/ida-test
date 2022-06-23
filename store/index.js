@@ -1,3 +1,5 @@
+import { sort } from '~/helpers/sort'
+
 export const state = () => ({
   list: [],
   unsorted: [],
@@ -5,34 +7,6 @@ export const state = () => ({
   sidebarIsOpen: false,
   sortBy: null
 })
-
-const sort = (sortBy, list) => {
-  const items = [...list]
-  switch (sortBy) {
-    case 0:
-      return items.sort((a, b) =>
-        parseFloat(a.id) > parseFloat(b.id) ? 1 : -1
-      )
-    case 1:
-      return items.sort((a, b) =>
-        parseFloat(a.price.replace(' ', '')) >
-        parseFloat(b.price.replace(' ', ''))
-          ? 1
-          : -1
-      )
-    case 2:
-      return items.sort((a, b) =>
-        parseFloat(b.price.replace(' ', '')) >
-        parseFloat(a.price.replace(' ', ''))
-          ? 1
-          : -1
-      )
-    case 3:
-      return items.sort((a, b) => (a.name > b.name ? 1 : -1))
-    default:
-      break
-  }
-}
 
 export const mutations = {
   addItem (state, form) {
@@ -68,23 +42,7 @@ export const mutations = {
     if (state.unsorted.length === 0) {
       state.unsorted = [...state.list]
     }
-    const items = [...state.list]
-    switch (sortType) {
-      case 0:
-        state.list = sort(sortType, items)
-        break
-      case 1:
-        state.list = sort(sortType, items)
-        break
-      case 2:
-        state.list = sort(sortType, items)
-        break
-      case 3:
-        state.list = sort(sortType, items)
-        break
-      default:
-        break
-    }
+    sort(state.sortBy, [...state.list])
   },
   showAlert (state) {
     state.alertIsOpen = !state.alertIsOpen
