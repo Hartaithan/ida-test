@@ -41,15 +41,15 @@
       >
     </object>
     <div class="item__info">
-      <div class="item__name">
+      <h1 class="item__name">
         {{ item.name }}
-      </div>
-      <div class="item__description">
-        {{ item.description || "Описание отсутствует" }}
-      </div>
-      <div class="item__price">
+      </h1>
+      <p class="item__description">
+        {{ item.description || 'Описание отсутствует' }}
+      </p>
+      <p class="item__price">
         {{ item.price }}
-      </div>
+      </p>
     </div>
   </div>
 </template>
@@ -109,27 +109,36 @@ export default {
   &__info {
     display: flex;
     flex-direction: column;
-    padding: 16px;
-    height: 215px;
+    padding: 16px 16px 24px 16px;
+    height: 223px;
   }
   &__name {
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
     margin-bottom: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   &__description {
-    flex-grow: 1;
+    height: 80px;
+    width: 100%;
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 32px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
   &__price {
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
     &:after {
-      content: " руб.";
+      content: ' руб.';
     }
   }
 }
