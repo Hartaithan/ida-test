@@ -1,7 +1,7 @@
 <template>
   <div class="select" :tabindex="tabindex" @blur="open = false">
     <div class="selected" :class="{ open: open }" @click="open = !open">
-      {{ selected.label }}
+      <p>{{ selected.label }}</p>
     </div>
     <div class="items" :class="{ hidden: !open }">
       <div
@@ -14,7 +14,7 @@
           $emit('input', option.value);
         "
       >
-        {{ option.label }}
+        <p>{{ option.label }}</p>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .select {
   position: relative;
-  width: 164px;
+  width: 121.49px;
   text-align: left;
   outline: none;
   height: 36px;
@@ -68,16 +68,24 @@ export default {
     display: flex;
     align-items: center;
     height: 100%;
-    font-size: 12px;
-    line-height: 15px;
-    color: #b4b4b4;
     padding-left: 16px;
+    padding-right: 27.49px;
     cursor: pointer;
     user-select: none;
     background: #fffefb;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    border: 1px solid transparent;
     border-radius: 4px;
+    & > p {
+      width: 100%;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 15px;
+      color: #b4b4b4;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
     &.open {
       border-radius: 6px 6px 0px 0px;
       &:after {
@@ -89,7 +97,7 @@ export default {
       top: 45%;
       right: 16px;
       transform: translateY(-50%);
-      content: "";
+      content: '';
       display: inline-block;
       width: 5px;
       height: 5px;
@@ -115,15 +123,23 @@ export default {
       display: flex;
       align-items: center;
       height: 28px;
-      color: #b4b4b4;
       padding-left: 16px;
+      padding-right: 16px;
       cursor: pointer;
       user-select: none;
-      font-size: 12px;
-      line-height: 15px;
+      & > p {
+        font-size: 12px;
+        line-height: 15px;
+        color: #b4b4b4;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
       &:hover {
-        color: #fffefb;
         background-color: #b4b4b4;
+        & > p {
+          color: #fffefb;
+        }
       }
     }
   }
