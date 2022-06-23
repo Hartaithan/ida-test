@@ -22,7 +22,7 @@ export const mutations = {
         price: form.price
       }
     ]
-    if (state.sortBy) {
+    if (state.sortBy !== null) {
       state.list = sort(state.sortBy, newList)
     } else {
       state.list = newList
@@ -42,7 +42,7 @@ export const mutations = {
     if (state.unsorted.length === 0) {
       state.unsorted = [...state.list]
     }
-    sort(state.sortBy, [...state.list])
+    state.list = sort(state.sortBy, [...state.list])
   },
   showAlert (state) {
     state.alertIsOpen = !state.alertIsOpen

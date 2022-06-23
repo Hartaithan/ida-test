@@ -58,6 +58,9 @@ export default {
   },
   methods: {
     handleSelect (sortType) {
+      if (typeof sortType !== 'number') {
+        return
+      }
       this.$store.commit('sortBy', sortType)
     }
   }
