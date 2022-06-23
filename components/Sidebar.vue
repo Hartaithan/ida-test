@@ -30,14 +30,15 @@ export default {
   &__header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 16px;
   }
 }
+
 h1 {
   font-weight: 600;
   font-size: 28px;
   line-height: 35px;
   color: #3f3f3f;
-  margin-bottom: 16px;
 }
 
 @media (min-width: 1921px) {
@@ -59,13 +60,16 @@ h1 {
     background: #fffefb;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
       0px 6px 10px rgba(0, 0, 0, 0.02);
+
     &__header {
       padding: 24px 24px 0 24px;
     }
+
     &.isOpen {
       left: 0;
     }
   }
+
   h1 {
     font-size: 24px;
   }

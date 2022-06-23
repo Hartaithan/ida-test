@@ -140,6 +140,7 @@ form {
   border-radius: 4px;
 }
 .input-group {
+  position: relative;
   display: flex;
   flex-direction: column;
   &__label {
@@ -148,8 +149,8 @@ form {
     letter-spacing: -0.02em;
     color: #49485e;
     margin-bottom: 4px;
-    &[for]:not([for="description"])::after {
-      content: "";
+    &[for]:not([for='description'])::after {
+      content: '';
       display: inline-block;
       width: 4px;
       height: 4px;
@@ -182,6 +183,8 @@ form {
     resize: none;
   }
   &__feedback {
+    position: absolute;
+    bottom: -14px;
     margin-top: 4px;
     font-size: 8px;
     line-height: 10px;
@@ -194,12 +197,15 @@ form {
       -webkit-appearance: none;
       margin: 0;
     }
-    &[type="number"] {
+    &[type='number'] {
       -moz-appearance: textfield;
     }
   }
   &:not(:last-child) {
     margin-bottom: 16px;
+  }
+  &:last-of-type {
+    margin-bottom: 24px;
   }
 }
 button {
